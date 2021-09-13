@@ -1,0 +1,44 @@
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase MINHAS LISTAS
+        .col.button-right
+          = link_to 'Nova Categoria', new_category_path, class:"btn btn-outline-danger"
+
+
+.table-responsive
+  table.table.table-striped.table-sm
+    thead
+      tr
+        th #
+        th Status
+        th Color
+        th Name
+        th
+        th
+        th
+
+    tbody
+      - @categories.each do |category|
+        tr
+          td = category.id
+          td 
+            - if category.status == 'a'
+              | Ativo
+            - else
+              | Inativo
+          td style="background:#{category.color}"
+          td = category.name
+          td = link_to 'Show', category, class:"btn btn-outline-info btn-sm"
+          td = link_to 'Edit', edit_category_path(category), class:"btn btn-outline-warning btn-sm"
+          td = link_to 'Destroy', category, data: { confirm: 'Are you sure?' }, method: :delete, class:"btn btn-outline-danger btn-sm"
+
+  br
+
+

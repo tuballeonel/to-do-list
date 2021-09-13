@@ -1,0 +1,19 @@
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase EDITAR CATEGORIA
+        .col.button-right
+          = link_to 'Novo item', new_category_path, class:"btn btn-outline-danger"
+
+
+== render 'form'
+
+=> link_to ' Ver', @category, class:"btn btn-outline-info btn-sm"
+'|
+=< link_to ' <- Voltar', categories_path, class:"btn btn-outline-warning btn-sm"
