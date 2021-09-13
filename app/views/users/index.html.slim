@@ -1,27 +1,36 @@
-h1 Listing users
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase USUÁRIOS
+        .col.button-right
+          = link_to 'Novo usuário', new_user_path, class:"btn btn-outline-danger"
 
-table
-  thead
-    tr
-      th Name
-      th Email
-      th Password
-      th Password confirmation
-      th
-      th
-      th
 
-  tbody
-    - @users.each do |user|
+.table-responsive
+  table.table.table-striped.table-sm
+    thead
       tr
-        td = user.name
-        td = user.email
-        td = user.password
-        td = user.password_confirmation
-        td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_path(user)
-        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+        th #
+        th Nome
+        th E-mail
+        th
+        th
+        th
 
-br
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.id
+          td = user.name
+          td = user.email
+          td = link_to 'Ver', user, class:"btn btn-outline-info btn-sm"
+          td = link_to 'Editar', edit_user_path(user), class:"btn btn-outline-warning btn-sm"
+          td = link_to 'Excluir', user, data: { confirm: 'Are you sure?' }, method: :delete, class:"btn btn-outline-danger btn-sm"
 
-= link_to 'New User', new_user_path
+  br

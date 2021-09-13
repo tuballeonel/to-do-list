@@ -21,9 +21,9 @@
           use xlink:href="#speedometer2" 
         | Itens
     li
-      a.nav-link.text-white href="#" 
+      a.nav-link.text-white href="#{categories_path}" 
         svg.bi.me-2 height="16" width="16" 
           use xlink:href="#speedometer2" 
         | Categorias
   hr
-  = link_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-warning"
+  = link_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-warning btn-outline-warning2"

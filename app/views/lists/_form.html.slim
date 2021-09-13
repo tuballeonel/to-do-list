@@ -1,12 +1,31 @@
-= simple_form_for(@list) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+.row
+  .col-6
+    = simple_form_for(@list) do |f|
+      = f.error_notification
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .form-inputs
-    = f.label "Status"
-    = f.select(:status, [['Ativo', 'a'], ['Concluído', 'c'], ['Cancelado', 'd']], {}, input_html: { value: 'autor' }, class: 'form-control ')
-    = f.input :name
-    = f.input :description
+      .form-inputs
+        .row
+          .col
+            .row
+              .col
+                = f.label "Status"
+                = f.select(:status, [['Ativo', 'a'], ['Concluído', 'c'], ['Cancelado', 'd']], {}, input_html: { value: 'autor' }, class: 'form-control ')
+              .col
+                = f.input :color, as: :color, html5: true
+            = f.input :name
+            = f.input :description
 
-  .form-actions
-    = f.button :submit
+          .col
+              / - if not @categories.nil? and not @categories.empty?
+              .panel.panel-default
+                .panel-heading
+                  = f.label 'Categorias'
+                .panel-body
+                  = f.collection_check_boxes :category_ids, @categories, :id, :name do |b|
+                    .collection-check-box 
+                      = b.check_box
+                      = b.label
+
+      .form-actions
+        = f.button :submit, class:"btn btn-outline-success btn-sm"

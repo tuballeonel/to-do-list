@@ -17,6 +17,7 @@
   table.table.table-striped.table-sm
     thead
       tr
+        th #
         th Status
         th Name
         th Description
@@ -27,6 +28,8 @@
     tbody
       - @lists.each do |list|
         tr
+          td = list.id
+          td style="background:#{list.color}"
           td 
             - if list.status == 'c'
               | Concluído
@@ -36,9 +39,9 @@
               | Ativo
           td = list.name
           td = list.description
-          td = link_to 'Ver', list
-          td = link_to 'Editar', edit_list_path(list)
-          td = link_to 'Excluir', list, data: { confirm: "Você tem certeza que deseja excluir a lista? #{list.name}" }, method: :delete
+          td = link_to 'Ver', list, class:"btn btn-outline-info btn-sm"
+          td = link_to 'Editar', edit_list_path(list), class:"btn btn-outline-warning btn-sm"
+          td = link_to 'Excluir', list, data: { confirm: "Você tem certeza que deseja excluir a lista? #{list.name}" }, method: :delete, class:"btn btn-outline-danger btn-sm"
   br
 
 

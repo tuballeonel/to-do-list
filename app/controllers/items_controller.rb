@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      if params[:page] == 'my_list'
+      if params[:page] == 'Cadastrar'
         redirect_to "/my-list/#{@item.list_id}", notice: 'Item was successfully created.'
       else
         redirect_to @item, notice: 'Item was successfully created.'

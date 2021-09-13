@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_12_133233) do
+ActiveRecord::Schema.define(version: 2021_09_13_152154) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "status"
+    t.string "color"
+    t.string "icone"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories_lists", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "list_id", null: false
+    t.index ["category_id", "list_id"], name: "index_categories_lists_on_category_id_and_list_id"
+    t.index ["list_id", "category_id"], name: "index_categories_lists_on_list_id_and_category_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.boolean "status"
@@ -27,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_09_12_133233) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "color"
   end
 
   create_table "users", force: :cascade do |t|

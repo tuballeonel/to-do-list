@@ -1,7 +1,19 @@
-h1 Editing list
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase EDITAR LISTA
+        .col.button-right
+          = link_to 'Nova lista de Tarefas', new_list_path, class:"btn btn-outline-danger"
+
 
 == render 'form'
 
-=> link_to 'Show', @list
+=> link_to ' Ver', @list, class:"btn btn-outline-info btn-sm"
 '|
-=< link_to 'Back', lists_path
+=< link_to ' < Voltar', lists_path, class:"btn btn-outline-warning btn-sm"

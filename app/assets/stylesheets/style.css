@@ -5,10 +5,10 @@
     margin-top: 0.125rem;
 }
 
-.btn-outline-warning {
+.btn-outline-warning2 {
     border-color: #F1863A !important;
 }
-.btn-outline-danger {
+.btn-outline-danger2 {
     border-color: #fff !important;
     background-color: #2C1A55 !important;
     color: #fff !important;
@@ -128,7 +128,17 @@ input, button, select, optgroup, textarea {
 }
 
 
+a {
+    text-decoration: none !important;
+}
+
+.schedule-tag2 {
+    color: #fff;
+    background-color: #848484;
+    text-decoration: line-through;
+}
+
 .text-line {
     text-decoration: line-through;
-    color: red;
+    color: #848484;
 }

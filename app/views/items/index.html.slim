@@ -1,23 +1,36 @@
-h1 Listing items
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase MINHAS LISTAS
+        .col.button-right
+          = link_to 'Novo item', new_item_path, class:"btn btn-outline-danger"
 
-table
-  thead
-    tr
-      th Status
-      th Name
-      th
-      th
-      th
 
-  tbody
-    - @items.each do |item|
+.table-responsive
+  table.table.table-striped.table-sm
+    thead
       tr
-        td = check_box "item", "status", {:checked => item.status, :disabled => true}
-        td = item.name
-        td = link_to 'Show', item
-        td = link_to 'Edit', edit_item_path(item)
-        td = link_to 'Destroy', item, data: { confirm: 'Are you sure?' }, method: :delete
+        th #
+        th Status
+        th Nome
+        th
+        th
+        th
 
-br
+    tbody
+      - @items.each do |item|
+        tr
+          td = item.id
+          td = check_box "item", "status", {:checked => item.status, :disabled => true}
+          td = item.name
+          td = link_to 'Ver', item, class:"btn btn-outline-info btn-sm"
+          td = link_to 'Editar', edit_item_path(item), class:"btn btn-outline-warning btn-sm"
+          td = link_to 'Excluir', item, data: { confirm: 'Are you sure?' }, method: :delete, class:"btn btn-outline-danger btn-sm"
 
-= link_to 'New Item', new_item_path
+  br

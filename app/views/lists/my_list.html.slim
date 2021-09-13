@@ -9,27 +9,35 @@
 
 .row
     .col-md-3	
-		= simple_form_for(@item) do |f|
-		  = f.error_notification
-		  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-		  = f.input :list_id, as: :hidden, input_html: { value: params[:id] }
-		  .form-inputs
-		    = f.input :name
+			/ form item
+			= simple_form_for(@item) do |f|
+			  = f.error_notification
+			  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+			  = f.input :list_id, as: :hidden, input_html: { value: params[:id] }
+			  .form-inputs
+			    = f.input :name
+				.form-actions
+					= f.button :submit, class:"btn btn-outline-danger", name: 'page',  value: 'Cadastrar'
 
-		  .form-actions
-		    = f.button :submit, class:"btn btn-outline-danger", name: 'page',  value: 'my_list'
+			hr
+    
     .col-md-8
       .schedule-warp
         .day-one = "Tarefas da lista - #{@lists.name}"
 
 	    - @items.each_with_index do |item, index|
-	        a href=""
+	        a href="/my-list/#{params[:id]}/#{item.id}/edit"
 		        .schedule-card
 		          .insidebox
 		            span.schedule-start = check_box "item", "status", {:checked => item.status, :disabled => true} 
-		            span.schedule-tag   = index + 1 
-		            span.schedule-start 
-		            	.text-line = " #{item.name}"
+		            - if item.status == true
+			            span.schedule-tag.schedule-tag2   = index + 1 
+			            span.schedule-start 
+			            		.text-line = " #{item.name}"
+		            - else
+			            span.schedule-tag   = index + 1 
+			            span.schedule-start 
+		            		= " #{item.name}"
 		       
 
 

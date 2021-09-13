@@ -11,18 +11,23 @@ class ListsController < ApplicationController
   end
 
   def  my_list
-    @lists = List.find(params[:id])
     @items = Item.where(:list_id => params[:id])
+    @lists = List.find(params[:id]) 
     @item  = Item.new
+    if params[:list]
+      update_items
+    end
   end
 
   # GET /lists/new
   def new
     @list = List.new
+    @categories = Category.all
   end
 
   # GET /lists/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /lists
@@ -59,6 +64,18 @@ class ListsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def list_params
-      params.require(:list).permit(:status, :name, :description)
+      params.require(:list).permit(:status, :color, :name, :description, category_ids:[])
+    end
+
+    def update_items
+      Item.where(:id => params[:list]).each do |item|
+        if item.status == true
+          @item_status = false
+        else
+          @item_status = true
+        end
+      end
+      @updateq = (ActiveRecord::Base.connection.execute("UPDATE items SET status=#{@item_status} WHERE id=#{params[:list]}"));
+      redirect_to "/my-list/#{params[:id]}" 
     end
 end

@@ -5,9 +5,9 @@ p
   = check_box "item", "status", {:checked => @item.status, :disabled => true}
 
 p
-  strong Name: 
+  strong Nome: 
   = @item.name
 
-=> link_to 'Edit', edit_item_path(@item)
+=> link_to 'Editar', edit_item_path(@item), class:"btn btn-outline-warning btn-sm"
 '|
-=< link_to 'Back', items_path
+=< link_to ' <- Voltar', items_path, class:"btn btn-outline-dark btn-sm"

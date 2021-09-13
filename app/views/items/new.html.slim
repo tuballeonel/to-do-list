@@ -1,5 +1,14 @@
-h1 New item
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase NOVO ITEM
 
 == render 'form'
 
-= link_to 'Back', items_path
+= link_to ' <- Voltar', items_path, class:"btn btn-outline-dark btn-sm"

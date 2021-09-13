@@ -10,13 +10,16 @@ p
     | Ativo
 
 p
-  strong Name: 
+  strong Nome:  
   = @list.name
+p
+  strong Cor:  
+  = @list.color
 
 p
-  strong Description:
+  strong Descrição: 
   = @list.description
 
-=> link_to 'Edit', edit_list_path(@list)
+=> link_to ' Editar', edit_list_path(@list), class:"btn btn-outline-warning btn-sm"
 '|
-=< link_to 'Back', lists_path
+=< link_to ' <- Voltar', lists_path, class:"btn btn-outline-dark btn-sm"

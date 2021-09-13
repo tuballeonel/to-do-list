@@ -1,11 +1,11 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong Nome:
   = @user.name
 
 p
-  strong Email:
+  strong E-mail:
   = @user.email
 
 p
@@ -16,6 +16,6 @@ p
   strong Password confirmation:
   = @user.password_confirmation
 
-=> link_to 'Edit', edit_user_path(@user)
+=> link_to 'Editar', edit_user_path(@user), class:"btn btn-outline-warning btn-sm"
 '|
-=< link_to 'Back', users_path
+=< link_to ' <- Voltar', users_path, class:"btn btn-outline-dark btn-sm"
