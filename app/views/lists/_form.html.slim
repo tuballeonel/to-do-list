@@ -12,7 +12,7 @@
                 = f.label "Status"
                 = f.select(:status, [['Ativo', 'a'], ['Concluído', 'c'], ['Cancelado', 'd']], {}, input_html: { value: 'autor' }, class: 'form-control ')
               .col
-                = f.input :color, as: :color, html5: true
+                = f.input :style="background:#{category.color}", as: :color, html5: true
             = f.input :name
             = f.input :description
 
