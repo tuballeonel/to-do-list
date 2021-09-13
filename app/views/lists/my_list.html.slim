@@ -1,0 +1,36 @@
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      h4.page-title.text-uppercase quadro de tarefas
+
+.row
+    .col-md-3	
+		= simple_form_for(@item) do |f|
+		  = f.error_notification
+		  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+		  = f.input :list_id, as: :hidden, input_html: { value: params[:id] }
+		  .form-inputs
+		    = f.input :name
+
+		  .form-actions
+		    = f.button :submit, class:"btn btn-outline-danger", name: 'page',  value: 'my_list'
+    .col-md-8
+      .schedule-warp
+        .day-one = "Tarefas da lista - #{@lists.name}"
+
+	    - @items.each_with_index do |item, index|
+	        a href=""
+		        .schedule-card
+		          .insidebox
+		            span.schedule-start = check_box "item", "status", {:checked => item.status, :disabled => true} 
+		            span.schedule-tag   = index + 1 
+		            span.schedule-start 
+		            	.text-line = " #{item.name}"
+		       
+
+
+

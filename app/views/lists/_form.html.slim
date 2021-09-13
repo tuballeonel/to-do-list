@@ -1,0 +1,12 @@
+= simple_form_for(@list) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.label "Status"
+    = f.select(:status, [['Ativo', 'a'], ['Concluído', 'c'], ['Cancelado', 'd']], {}, input_html: { value: 'autor' }, class: 'form-control ')
+    = f.input :name
+    = f.input :description
+
+  .form-actions
+    = f.button :submit

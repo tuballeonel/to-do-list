@@ -1,0 +1,13 @@
+p#notice = notice
+
+p
+  strong Status: 
+  = check_box "item", "status", {:checked => @item.status, :disabled => true}
+
+p
+  strong Name: 
+  = @item.name
+
+=> link_to 'Edit', edit_item_path(@item)
+'|
+=< link_to 'Back', items_path

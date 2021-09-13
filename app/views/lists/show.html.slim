@@ -1,0 +1,22 @@
+p#notice = notice
+
+p
+  strong Status: 
+  - if @list.status == 'c'
+    | Concluído
+  - elsif @list.status == 'd'
+    | Cancelado
+  - else
+    | Ativo
+
+p
+  strong Name: 
+  = @list.name
+
+p
+  strong Description:
+  = @list.description
+
+=> link_to 'Edit', edit_list_path(@list)
+'|
+=< link_to 'Back', lists_path

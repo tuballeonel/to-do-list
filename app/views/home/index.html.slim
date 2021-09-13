@@ -1,2 +1,16 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      h4.page-title.text-uppercase MINHAS TAREFAS
+    = link_to 'Nova lista de Tarefas', new_list_path, class:"btn btn-outline-danger"
+    
+ul.stickie
+    - @lists.each do |list|
+      li
+        a href="/my-list/#{list.id}" style=("background-color: #ffb347;") 
+            h2 = list.name
+            p = list.description

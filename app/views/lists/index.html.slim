@@ -1,0 +1,45 @@
+.row
+  .col-12
+    .page-title-box
+      .page-title-right
+        ol.breadcrumb.m-0
+          li.breadcrumb-item.active Home
+          li.breadcrumb-item.active Index
+      .row
+        .col
+            h4.page-title.text-uppercase MINHAS LISTAS
+        .col.button-right
+          = link_to 'Nova lista de Tarefas', new_list_path, class:"btn btn-outline-danger"
+
+
+
+.table-responsive
+  table.table.table-striped.table-sm
+    thead
+      tr
+        th Status
+        th Name
+        th Description
+        th
+        th
+        th
+
+    tbody
+      - @lists.each do |list|
+        tr
+          td 
+            - if list.status == 'c'
+              | Concluído
+            - elsif list.status == 'd'
+              | Cancelado
+            - else
+              | Ativo
+          td = list.name
+          td = list.description
+          td = link_to 'Ver', list
+          td = link_to 'Editar', edit_list_path(list)
+          td = link_to 'Excluir', list, data: { confirm: "Você tem certeza que deseja excluir a lista? #{list.name}" }, method: :delete
+  br
+
+
+

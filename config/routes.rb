@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users
+  resources :lists
+  get 'my-list/:id' => 'lists#my_list'
+  resources :items
 end

@@ -1,0 +1,29 @@
+.d-flex.flex-column.flex-shrink-0.p-3.text-white.bg-dark style=("width: 200px;") 
+  a.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.text-white.text-decoration-none href="/" 
+    svg.bi.me-2 height="32" width="40" 
+      use xlink:href="#bootstrap" 
+    span.fs-4 Menu
+  hr
+  ul.nav.nav-pills.flex-column.mb-auto
+    li.nav-item
+      a.nav-link.active aria-current="page" href="#{root_path}" 
+        svg.bi.me-2 height="16" width="16" 
+          use xlink:href="#home" 
+        | Home
+    li
+      a.nav-link.text-white href="#{lists_path}" 
+        svg.bi.me-2 height="16" width="16" 
+          use xlink:href="#speedometer2" 
+        | Listas
+    li
+      a.nav-link.text-white href="#{items_path}" 
+        svg.bi.me-2 height="16" width="16" 
+          use xlink:href="#speedometer2" 
+        | Itens
+    li
+      a.nav-link.text-white href="#" 
+        svg.bi.me-2 height="16" width="16" 
+          use xlink:href="#speedometer2" 
+        | Categorias
+  hr
+  = link_to 'Sair', destroy_user_session_path, method: :delete, class:"btn btn-outline-warning"
