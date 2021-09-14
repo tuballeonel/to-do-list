@@ -26,6 +26,7 @@ bundle exec rails db:seed
 
 
 RELATIONAL DATABASE MODEL:
+
 https://lucid.app/lucidchart/invitations/accept/inv_40ecafe6-6018-4e49-a523-54b06bd464c7
 
 
